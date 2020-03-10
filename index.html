@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pet Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <center><h1>Pet Store</h1></center>
+    <h3>Adicionar produto</h3>
+    <form>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Nome:</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" >
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Categorias:</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>Brinquedos</option>
+            <option>Higiene</option>
+            <option>Acessorios</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Descrição:</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+                <label for="exampleFormControlInput1">Preço:</label>
+                <input type="number" min="0" class="form-control" id="exampleFormControlInput1" >
+              </div>
+
+              <div class="form-group">
+                    <label for="exampleFormControlInput1">Quant. em estoque:</label>
+                    <input type="number" min="0" class="form-control" id="exampleFormControlInput1" >
+                  </div>
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1">Imagem do produto</label>
+                          <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        </div>
+                        <button type="button" class="btn btn-outline-primary btn-lg btn-block">Adicionar Produto</button>
+
+      </form>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h3>Produtos:</h3>
+
+      <div class="card" style="width: 18rem;">
+            <img src="https://www.petelegante.com.br/media/catalog/product/c/o/coleira_para_cachorro_preta_niquelado_lisa.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Coleira</h5>
+              <p class="card-text">Coleira na cor preta com pinjente de ossinho prata.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Preço: 30,00R$</li>
+              <li class="list-group-item">Quant. em estoque: 30</li>
+              <li class="list-group-item">Categoria: Acessorios</li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">Editar</a>
+              <a href="#" class="card-link">Remover</a>
+            </div>
+          </div>
+</body>
+</html>
