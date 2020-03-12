@@ -1,98 +1,224 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Pet Store</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Pet Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
+
 <body>
-    <center><h1>Pet Store</h1></center>
-    <h3>Adicionar produto</h3>
-    <form>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Nome:</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" >
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Categorias:</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>Brinquedos</option>
-            <option>Higiene</option>
-            <option>Acessorios</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">Descrição:</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-        <div class="form-group">
-                <label for="exampleFormControlInput1">Preço:</label>
-                <input type="number" min="0" class="form-control" id="exampleFormControlInput1" >
-              </div>
+  <div class="container-sm">
+  <center>
+    <h1 style="padding: 2rem">Pet Store</h1>
+  </center>
+  <div class="card" style="padding: 2rem; background-color: rgb(220,220,220);">
+  <h3>Adicionar produto</h3>
+  <div class="dropdown-divider"></div>
+  <form>
+    <div class="form-group">
+      <br />
+      <label for="exampleFormControlInput1">Nome:</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Categorias:</label>
+      <select class="form-control" id="exampleFormControlSelect1">
+        <option>Brinquedos</option>
+        <option>Higiene</option>
+        <option>Acessorios</option>
+        <option>Alimento</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Descrição:</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Preço:</label>
+      <input type="number" min="0" class="form-control" id="exampleFormControlInput1">
+    </div>
 
-              <div class="form-group">
-                    <label for="exampleFormControlInput1">Quant. em estoque:</label>
-                    <input type="number" min="0" class="form-control" id="exampleFormControlInput1" >
-                  </div>
-                        <div class="form-group">
-                          <label for="exampleFormControlInput1">Imagem do produto</label>
-                          <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                        </div>
-                        <button type="button" class="btn btn-outline-primary btn-lg btn-block">Adicionar Produto</button>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Quant. em estoque:</label>
+      <input type="number" min="0" class="form-control" id="exampleFormControlInput1">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Imagem do produto:</label>
+      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+    <br /><br />
+    <button type="button" class="btn btn-outline-primary btn-lg btn-block">Adicionar Produto</button>
 
-      </form>
-      <br>
-      <br>
-      <br>
-      <br>
-      <h3>Produtos:</h3>
-      <form>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Filtrar por Categoria:</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>Brinquedos</option>
-            <option>Higiene</option>
-            <option>Acessorios</option>
-          </select>
-        </div>
-      </form>
-  
-      <div class="row">
-        <div class="col-sm-6">
+  </form>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="card" style="padding: 2rem">
+  <h3>Produtos Cadastrados</h3>
+  <div class="dropdown-divider"></div>
+  <form>
+    <div class="form-group">
+      <br />
+      <label for="exampleFormControlSelect1">Filtrar por Categoria:</label>
+      <select class="form-control" id="exampleFormControlSelect1">
+        <option>Brinquedos</option>
+        <option>Higiene</option>
+        <option>Acessorios</option>
+        <option>Alimento</option>
+      </select>
+      <br />
+      <br />
+    </div>
+  </form>
+<div class="col">
+  <div class="row">
+    <div class="col-sm-4">
       <div class="card" style="width: 18rem;">
-            <img src="https://www.petelegante.com.br/media/catalog/product/c/o/coleira_para_cachorro_preta_niquelado_lisa.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Coleira</h5>
-              <p class="card-text">Coleira na cor preta com pinjente de ossinho prata.</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Preço: 30,00R$</li>
-              <li class="list-group-item">Quant. em estoque: 30</li>
-              <li class="list-group-item">Categoria: Acessorios</li>
-            </ul>
-            <div class="card-body">
-              <a href="#" class="card-link">Editar</a>
-              <a href="#" class="card-link">Remover</a>
-            </div>
-          </div></div>  <div class="col-sm-6">
-          <div class="card" style="width: 18rem;">
-            <img src="https://www.petelegante.com.br/media/catalog/product/c/o/coleira_para_cachorro_preta_niquelado_lisa.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Coleira</h5>
-              <p class="card-text">Coleira na cor preta com pinjente de ossinho prata.</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Preço: 30,00R$</li>
-              <li class="list-group-item">Quant. em estoque: 30</li>
-              <li class="list-group-item">Categoria: Acessorios</li>
-            </ul>
-            <div class="card-body">
-              <a href="#" class="card-link">Editar</a>
-              <a href="#" class="card-link">Remover</a>
-            </div>
-          </div></div></div>
+        <img src="https://www.petelegante.com.br/media/catalog/product/c/o/coleira_preta-pingente_1.jpg"
+          class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Coleira</h5>
+          <p class="card-text">Coleira na cor preta com pinjente de ossinho prata.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Preço: 30,00R$</li>
+          <li class="list-group-item">Quant. em estoque: 30</li>
+          <li class="list-group-item">Categoria: Acessorios</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Editar</a>
+          <a href="#" class="card-link">Remover</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card" style="width: 18rem;">
+        <img src="https://araujo.vteximg.com.br/arquivos/ids/3897061-1000-1000/07896015605193.jpg?v=636796038206100000"
+          class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Ração</h5>
+          <p class="card-text">Ração Canina, 18k. Para filhotes.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Preço: 100,00R$</li>
+          <li class="list-group-item">Quant. em estoque: 200</li>
+          <li class="list-group-item">Categoria: Alimento</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Editar</a>
+          <a href="#" class="card-link">Remover</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card" style="width: 18rem;">
+        <img src="https://www.petlove.com.br/images/products/198418/product/Shampoo_Pet_Society_Beeps_Estopinha_Gatos_Extrato_de_Aveia_1932461.jpg?1556467127"
+          class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Shampoo para gatos</h5>
+          <p class="card-text">Com delicioso cheirinho de amora, o Shampoo Pet Society Beeps Estopinha Gatos Extrato de Aveia vai tornar o banho do seu gatinho prático e rápido. </p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Preço: 20,00R$</li>
+          <li class="list-group-item">Quant. em estoque: 500</li>
+          <li class="list-group-item">Categoria: Higiene</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Editar</a>
+          <a href="#" class="card-link">Remover</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card" style="width: 18rem;">
+        <img src="data:image/jpeg;base64,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"
+          class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Gaiola</h5>
+          <p class="card-text">Gaiola Passarinho com Poleiro Nº04 Sabiá Canario Curió - Gaiolas confiança.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Preço:100,00R$</li>
+          <li class="list-group-item">Quant. em estoque: 80</li>
+          <li class="list-group-item">Categoria: Acessorios</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Editar</a>
+          <a href="#" class="card-link">Remover</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card" style="width: 18rem;">
+        <img src="https://http2.mlstatic.com/D_NQ_NP_659667-MLB31210163453_062019-W.jpg"
+          class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Bebedouro para gatos</h5>
+          <p class="card-text">Fonte para gato. 1l.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Preço: 80,00R$</li>
+          <li class="list-group-item">Quant. em estoque: 70</li>
+          <li class="list-group-item">Categoria: Acessorios</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Editar</a>
+          <a href="#" class="card-link">Remover</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card" style="width: 18rem;">
+        <img src="https://a-static.mlcdn.com.br/618x463/racao-para-peixes-de-aquario-alcon-basic-alimento-completo-em-flocos-para-peixes-20g/agropesc/535839/f649b1325a7e4b91e649d699655ea938.jpg"
+          class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Ração para peixes</h5>
+          <p class="card-text">Ração para peixes de aquario. 20g. </p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Preço: 73,00R$</li>
+          <li class="list-group-item">Quant. em estoque: 280</li>
+          <li class="list-group-item">Categoria: Alimento</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Editar</a>
+          <a href="#" class="card-link">Remover</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <br />
+  <div class="dropdown-divider"></div>
+ <nav aria-label="...">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <span class="page-link">Previous</span>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item active" aria-current="page">
+        <span class="page-link">
+          2
+          <span class="sr-only">(current)</span>
+        </span>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div></div>
 </body>
+
 </html>
