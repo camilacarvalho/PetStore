@@ -12,7 +12,10 @@ products=[
     {"id":3, "name":"Shampoo para gatos", "description":"Com delicioso cheirinho de amora, o Shampoo Pet Society Beeps Estopinha Gatos Extrato de Aveia vai tornar o banho do seu gatinho prático e rápido.", "rating":1,"price":20.00, "category":2}
 ];
 
-favorites =[];
+shopping_cart = [];
+shopping_cart.push(products[0]);
+
+favorites = [];
 favorites.push(products[1]);
 
 /* GET products list. */
@@ -28,6 +31,11 @@ router.get('/categories', function(res){
 /* GET favorites list. */
 router.get('/favorites', function(res){
     res.json(favorites);
+});
+
+/* GET shopping cart list. */
+router.get('/shopping-cart', function(res){
+    res.json(shopping_cart);
 });
 
 /* GET products by category list. */
