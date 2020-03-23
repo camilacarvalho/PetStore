@@ -24,7 +24,7 @@ router.get('/', function (req, res, next) {
 
 /* POST shopping cart. */
 router.post('/', function (req, res, next) {
-  req.body.id = shopping_cart.length+1;
+  req.body.id = shopping_cart[shopping_cart.length-1].id+1;
   shopping_cart.push(req.body);
   res.json(req.body);
   res.status("201");
@@ -33,14 +33,26 @@ router.post('/', function (req, res, next) {
 /* DELETE shopping cart. */
 router.delete('/:id', function(req, res, next){
   var id = req.params.id;
+  remove_basket(id);
+  res.json(this.shopping_cart);
+  res.status("204");
+});
+
+function remove_basket (id) {
+  var product;
   for( var i = 0; i < shopping_cart.length; i++){ 
     if(shopping_cart[i].id==id){
       shopping_cart.splice(i,1);
     }
   }
-  res.json(this.shopping_cart);
-  //res.status("201");
+  return product;
+}
+
+router.post('/move-favorite/:id', function(req, res, next){
+  var id = req.params.id;
+  var product = remove_basket(id);
+  //add a lista de basket
+  
 });
 
-//move for favorite
 module.exports = router;

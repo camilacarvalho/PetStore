@@ -33,14 +33,8 @@ router.get('/products-by-category/:category', function (req, res, next) {
   });
   res.json(productsByCategory);
 });
-*/
 
-router.post('/', function(req, res){
-  req.body.id = products.length+1;
-  products.push(req.body);
-  res.json(req.body);
-  res.status("201");
-});
+
 
 router.put('/:id', function(req, res){
   var id = req.params.id;
@@ -49,6 +43,8 @@ router.put('/:id', function(req, res){
   res.json(req.body);
   res.status("200");
 });
+
+*/
 
 /* GET products list.
 com a possibilidade de filtrar por categoria
