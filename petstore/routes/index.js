@@ -1,15 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var Product = require('../public/javascripts/model/product');
 
 categories = [
   "ALIMENTO", "HIGIENE", "ACESSORIOS"
 ];
 
-products = [
-  { "id": 1, "name": "Coleira", "description": "Coleira na cor preta com pinjente de ossinho prata.", "rating": 4, "price": 30.99, "category": 3 },
-  { "id": 2, "name": "Ração", "description": "Ração Canina, 18k. Para filhotes.", "rating": 3, "price": 100.10, "category": 1 },
-  { "id": 3, "name": "Shampoo para gatos", "description": "Com delicioso cheirinho de amora, o Shampoo Pet Society Beeps Estopinha Gatos Extrato de Aveia vai tornar o banho do seu gatinho prático e rápido.", "rating": 1, "price": 20.00, "category": 2 }
-];
+var product1 = new Product(1, "Coleira", "Coleira na cor preta com pinjente de ossinho prata.", 4, 30.99, 3);
+var product2 = new Product(2,"Ração","Ração Canina, 18k. Para filhotes.",3,100.10, 1 );
+var product3 = new Product(3,"Shampoo para gatos", "Com delicioso cheirinho de amora, o Shampoo Pet Society Beeps Estopinha Gatos Extrato de Aveia vai tornar o banho do seu gatinho prático e rápido.",1,20.00,2)
+
+products = [product1,product2, product3];
 
 favorites = [];
 favorites.push(products[1]);
@@ -35,7 +36,7 @@ router.get('/products-by-category/:category', function (req, res, next) {
 */
 
 router.post('/', function(req, res){
-  req.body.id = products.length
+  req.body.id = products.length+1;
   products.push(req.body);
   res.json(req.body);
   res.status("201");
