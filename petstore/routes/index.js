@@ -3,12 +3,12 @@ var router = express.Router();
 var Product = require('../public/javascripts/model/product');
 
 categories = [
-  "ALIMENTO", "HIGIENE", "ACESSORIOS"
+  "ALIMENTO", "HIGIENE", "ACESSORIOS", "BRINQUEDOS"
 ];
 
-var product1 = new Product(1, "Coleira", "Coleira na cor preta com pinjente de ossinho prata.", 4, 30.99, 3);
-var product2 = new Product(2,"Ração","Ração Canina, 18k. Para filhotes.",3,100.10, 1 );
-var product3 = new Product(3,"Shampoo para gatos", "Com delicioso cheirinho de amora, o Shampoo Pet Society Beeps Estopinha Gatos Extrato de Aveia vai tornar o banho do seu gatinho prático e rápido.",1,20.00,2)
+var product1 = new Product(1, "Coleira", "Coleira na cor preta com pinjente de ossinho prata.", 4, 30.99, 3, "https://www.petelegante.com.br/media/catalog/product/c/o/coleira_preta-pingente_1.jpg");
+var product2 = new Product(2,"Ração","Ração Canina, 18k. Para filhotes.",3,100.10, 1, "https://araujo.vteximg.com.br/arquivos/ids/3897061-1000-1000/07896015605193.jpg?v=636796038206100000");
+var product3 = new Product(3,"Shampoo para gatos", "Com delicioso cheirinho de amora, o Shampoo Pet Society Beeps Estopinha Gatos Extrato de Aveia vai tornar o banho do seu gatinho prático e rápido.",1,20.00,2, "https://www.petlove.com.br/images/products/198418/product/Shampoo_Pet_Society_Beeps_Estopinha_Gatos_Extrato_de_Aveia_1932461.jpg?1556467127");
 
 products = [product1,product2, product3];
 
