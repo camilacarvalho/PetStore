@@ -8,9 +8,9 @@ function FilterProduct(props) {
                 <label for="exampleFormControlSelect1">Filtrar por {props.name}:</label>
                 <select className="form-control" id="exampleFormControlSelect1">
                     {
-                        props.categories.map(category=>{
-                            return(
-                                    <option>{category}</option>
+                        props.categories.map(category => {
+                            return (
+                                <option>{category}</option>
                             );
                         })
                     }

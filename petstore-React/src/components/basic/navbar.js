@@ -1,7 +1,7 @@
 import React from 'react';
-import ImageBasket from '../assets/images/basket.svg'
-import Paw from '../assets/images/paw.svg'
-import Favorite from '../assets/images/cards-heart.svg'
+import ImageBasket from '../../assets/images/basket.svg'
+import Paw from '../../assets/images/paw.svg'
+import Favorite from '../../assets/images/cards-heart.svg'
 
 function NavBar() {
     return (

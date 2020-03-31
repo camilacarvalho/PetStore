@@ -1,6 +1,6 @@
 import React from 'react';
-import Star from '../assets/images/star.svg'
-import StarOutline from '../assets/images/star-outline.svg';
+import Star from '../../assets/images/star.svg'
+import StarOutline from '../../assets/images/star-outline.svg';
 
 function Rating(props) {
 

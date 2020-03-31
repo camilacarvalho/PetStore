@@ -8,7 +8,7 @@ function RowProducts(props) {
     var concatena = (c1, c2) => {
         return <>{c1}{c2}</>
     }
-    
+
     var prepareProduct = () => {
         if (props.products.length < props.numberRow) {
             var quant = (props.numberRow - props.products.length);
@@ -25,7 +25,7 @@ function RowProducts(props) {
             <div className="card-group">
                 {(products).map(product => {
                     return (
-                        <ItemProduct isFavorite={props.isFavorite} product = {product} />
+                        <ItemProduct actionButton={props.actionButton} nameButton={props.nameButton} favoriteActionButton={props.favoriteActionButton} isCategory={props.isCategory} isRating={props.isRating} isFavorite={props.isFavorite} product={product} />
                     );
                 })}
                 {prepareProduct()}
