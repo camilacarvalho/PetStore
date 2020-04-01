@@ -45,9 +45,8 @@ export default class Favorites extends React.Component {
 
 
                         </> : <></>}
-                        <ListProduct actionButton={this.moveBasket} nameButton="Mover para o carrinho" numberRow={4} isCategory={true} isRating={true} isFavorite={true} favoriteActionButton={this.removeFavorite} products={this.state.products} />
+                        <ListProduct actionButton={this.moveBasket} nameButton="Mover para o carrinho" numberRow={4} isDescription={false} isCategory={false} isRating={false} isFavorite={true} favoriteActionButton={this.removeFavorite} products={this.state.products} />
                         <br />
-                        <Page limite={4} quantProduct={this.state.products.length} />
                     </div>
                 </div>
             </>

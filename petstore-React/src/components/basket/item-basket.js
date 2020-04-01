@@ -28,7 +28,6 @@ export default class ItemBasket extends React.Component {
         });
         var item = this.props.item;
         item.quantity = valor;
-        console.log(item);
         this.props.setQuantity(item);
     }
 

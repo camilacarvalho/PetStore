@@ -25,7 +25,7 @@ function RowProducts(props) {
             <div className="card-group">
                 {(products).map(product => {
                     return (
-                        <ItemProduct actionButton={props.actionButton} nameButton={props.nameButton} favoriteActionButton={props.favoriteActionButton} isCategory={props.isCategory} isRating={props.isRating} isFavorite={props.isFavorite} product={product} />
+                        <ItemProduct actionButton={props.actionButton} isDescription={props.isDescription} nameButton={props.nameButton} favoriteActionButton={props.favoriteActionButton} isCategory={props.isCategory} isRating={props.isRating} isFavorite={props.isFavorite} product={product} />
                     );
                 })}
                 {prepareProduct()}

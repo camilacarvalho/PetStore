@@ -7,8 +7,6 @@ import {isProductInFavoriteList} from '../utils/product-utils'
 function ItemProduct(props) {
 
 var iconFavorite = () =>{
-    console.log(props.product)
-   console.log(isProductInFavoriteList(props.product));
     if(isProductInFavoriteList(props.product)===true){
         return Heart;
     }else{
@@ -25,11 +23,12 @@ var iconFavorite = () =>{
                 <img className="card-img-top" src={props.product.image} alt="Card image cap" style={{ padding: "2rem" }} />
                 <div className="card-body">
                     <h5 className="card-title">{props.product.name}</h5>
-                    {!props.isFavorite ? (<><p className="card-text">{props.product.description}</p><Rating rating={props.product.rating} /></>) : <> </>}
+                    {props.isDescription ? (<p className="card-text">{props.product.description}</p>) : <> </>}
+                    {props.isRating ? (<Rating rating={props.product.rating} />) : <> </>}
                 </div>
                 <ul className="list-group list-group-flush">
                     <li className="list-group-item">Preço: {props.product.price} R$</li>
-                    {!props.isFavorite ? (<li className="list-group-item">Categoria: {props.product.category} </li>) : <></>}
+                    {props.isCategory ? (<li className="list-group-item">Categoria: {props.product.category} </li>) : <></>}
                 </ul>
                 <div className="card-body">
                     <button type="button" onClick={ ()=>props.actionButton(props.product)} class="btn btn-outline-secondary">{props.nameButton}</button>

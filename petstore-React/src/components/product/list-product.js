@@ -7,7 +7,6 @@ function ListProduct(props) {
     var prepareProduct = () => {
         var size = props.products.length;
         var quantList = Math.ceil(size / props.numberRow);
-        console.log(props.products)
         var indexProduto = 0;
         for (let index = 0; index < quantList; index++) {
             var products1 = [];
@@ -22,7 +21,6 @@ function ListProduct(props) {
             }
             products.push(products1);
         }
-        console.log(products)
     }
 
     return (
@@ -31,7 +29,7 @@ function ListProduct(props) {
             {
                 products.map(product => {
                     return (
-                        <RowProducts numberRow={props.numberRow} products={product} actionButton={props.actionButton} nameButton={props.nameButton} favoriteActionButton={props.favoriteActionButton} isCategory={props.isCategory} isRating={props.isRating} isFavorite={props.isFavorite} />
+                        <RowProducts numberRow={props.numberRow} isDescription={props.isDescription} products={product} actionButton={props.actionButton} nameButton={props.nameButton} favoriteActionButton={props.favoriteActionButton} isCategory={props.isCategory} isRating={props.isRating} isFavorite={props.isFavorite} />
                         
                     );
                 })
