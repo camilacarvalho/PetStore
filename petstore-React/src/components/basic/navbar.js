@@ -7,7 +7,7 @@ function NavBar() {
     return (
         <nav className="navbar navbar-light bg-light">
       <img src={Paw} width="30" height="30" alt="" />
-      <a className="navbar-brand" href="">Pet Store</a>
+      <a className="navbar-brand" href="#/">Pet Store</a>
         <a className="navbar-brand" href="#/shopping_cart" style={{marginRight:"2em", marginLeft: "auto"}}>
           <img src={ImageBasket} width="30" height="30" alt=""/>
         </a>

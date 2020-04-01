@@ -62,7 +62,7 @@ this.actionButton(button);
                         <div className="col-md-4">
                             <img className="card-img"
                                 src={this.props.item.product.image}
-                                alt="Card image cap" /> </div>
+                                alt="" /> </div>
                         <div className="col-md-8">
                             <div className="card-body">
                                 <h5 className="card-title">{this.props.item.product.name}</h5>
@@ -75,10 +75,12 @@ this.actionButton(button);
                                 <li className="list-group-item">Preço: {(this.props.item.product.price) * this.props.item.quantity}R$</li>
                             </ul>
                             <div className="card-body">
-                                {this.props.buttons.map(button => {
+                                {this.props.buttons.map((button,index) => {
+                                    //key={index}
                                     return (<>
-                                        {button.confirmation==true ? <ModalConfirmation closeModal={this.handleClose} acaoButton1={this.handleClose} acaoButton2={() => this.actionButton(button)} show={this.state.showModal} title={button.confirmation_modal.title} text={button.confirmation_modal.text} textButton1="Fechar" textButton2={button.name} colorButton1="link" colorButton2={button.style} /> : <></>}
-                                        <button type="button" onClick={() => this.confirmationButton(button)} class={button.style}>{button.name}</button>
+                                
+                                        {button.confirmation===true ? <ModalConfirmation closeModal={this.handleClose} acaoButton1={this.handleClose} acaoButton2={() => this.actionButton(button)} show={this.state.showModal} title={button.confirmation_modal.title} text={button.confirmation_modal.text} textButton1="Fechar" textButton2={button.name} colorButton1="link" colorButton2={button.style} /> : <></>}
+                                        <button type="button" onClick={() => this.confirmationButton(button)} className={button.style}>{button.name}</button>
 
                                     </>)
                                 })}

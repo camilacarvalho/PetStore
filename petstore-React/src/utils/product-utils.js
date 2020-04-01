@@ -1,7 +1,7 @@
 
-import { favorites } from '../utils/lists';
-import { basket } from '../utils/lists';
-import {BasketModel} from '../../model/basket-model'
+import { favorites } from '../lists';
+import { basket } from '../lists';
+import {BasketModel} from '../model/basket-model'
 
 
 export const categories = [

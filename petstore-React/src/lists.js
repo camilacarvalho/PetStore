@@ -1,6 +1,6 @@
 
-import {Product} from '../../model/product-model'
-import { BasketModel } from '../../model/basket-model';
+import {Product} from './model/product-model'
+import { BasketModel } from './model/basket-model';
 
 
 const product1 = new Product(1, "Coleira", "Coleira na cor preta com pinjente de ossinho prata.", 3, 30.00, "Acessorios", "https://www.petelegante.com.br/media/catalog/product/c/o/coleira_preta-pingente_1.jpg")

@@ -1,9 +1,8 @@
 import React from 'react';
-import Page from '../components/basic/page';
 import ListProduct from '../components/product/list-product';
-import { notifyInfo, notifyCode } from '../components/utils/toast-utils';
-import { favorites} from '../components/utils/lists';
-import {addInBasketList, removeInFavoriteList} from '../components/utils/product-utils';
+import { notifyInfo, notifyCode } from '../utils/toast-utils';
+import { favorites} from '../lists';
+import {addInBasketList, removeInFavoriteList} from '../utils/product-utils';
 export default class Favorites extends React.Component {
 
     state = {

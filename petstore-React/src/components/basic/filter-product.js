@@ -15,9 +15,9 @@ var handleChange=(event)=> {
                 <select className="form-control" id="exampleFormControlSelect1" value={select} onChange={handleChange}>>
                 <option value={optionDefault.value}>{optionDefault.text}</option>
                     {
-                        props.categories.map(category => {
+                        props.categories.map((category, index) => {
                             return (
-                                <option value={category}>{category}</option>
+                                <option key={index} value={category}>{category}</option>
                             );
                         })
                     }

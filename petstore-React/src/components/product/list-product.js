@@ -27,9 +27,9 @@ function ListProduct(props) {
         <>
             {prepareProduct()}
             {
-                products.map(product => {
+                products.map((product,index) => {
                     return (
-                        <RowProducts numberRow={props.numberRow} isDescription={props.isDescription} products={product} actionButton={props.actionButton} nameButton={props.nameButton} favoriteActionButton={props.favoriteActionButton} isCategory={props.isCategory} isRating={props.isRating} isFavorite={props.isFavorite} />
+                        <RowProducts key={index} numberRow={props.numberRow} isDescription={props.isDescription} products={product} actionButton={props.actionButton} nameButton={props.nameButton} favoriteActionButton={props.favoriteActionButton} isCategory={props.isCategory} isRating={props.isRating} isFavorite={props.isFavorite} />
                         
                     );
                 })

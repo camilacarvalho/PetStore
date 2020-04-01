@@ -1,11 +1,10 @@
 import React,{useState} from 'react';
 import FilterProduct from '../components/basic/filter-product';
 import ListProduct from '../components/product/list-product';
-import Page from '../components/basic/page';
-import {notifyInfo,notifyCode } from '../components/utils/toast-utils';
-import{categories} from '../components/utils/product-utils';
-import {products} from '../components/utils/lists';
-import {isProductInFavoriteList, addInBasketList, addInFavoriteList, removeInFavoriteList} from '../components/utils/product-utils';
+import {notifyInfo,notifyCode } from '../utils/toast-utils';
+import{categories} from '../utils/product-utils';
+import {products} from '../lists';
+import {isProductInFavoriteList, addInBasketList, addInFavoriteList, removeInFavoriteList} from '../utils/product-utils';
 
 function Products(){
     

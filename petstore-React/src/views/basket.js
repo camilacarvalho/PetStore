@@ -1,8 +1,8 @@
 import React from 'react';
 import ItemBasket from '../components/basket/item-basket';
-import {notifyInfo,notifyCode, notifySuccess } from '../components/utils/toast-utils';
-import {basket} from '../components/utils/lists';
-import {resetBasket, addInFavoriteList, removeInBasketList} from '../components/utils/product-utils';
+import {notifyInfo,notifyCode, notifySuccess } from '../utils/toast-utils';
+import {basket} from '../lists';
+import {resetBasket, addInFavoriteList, removeInBasketList} from '../utils/product-utils';
 
 export default class Basket extends React.Component {
 
@@ -69,7 +69,7 @@ export default class Basket extends React.Component {
                        
                         <div className="row">
                             <div className="col-sm-6 col-md-8">
-                            {this.state.total==0?<>
+                            {this.state.total===0?<>
                           
                            <center> <br /><h4>Você não tem itens no carrinho</h4>
                             <h6>Calma que aqui tem tuuudo, vem com a gente :)</h6>
@@ -78,15 +78,15 @@ export default class Basket extends React.Component {
                             
                             
                             </>:<></>}
-                                {basket.map(item => { 
-                                    return (<ItemBasket setQuantity={this.setQuantity} buttons={[{name:"Mover para favoritos",action:"buttonAction1", style:"btn btn-outline-secondary", confirmation:false}, {name:"Remover", action:"buttonAction2", style:"btn btn-outline-danger", confirmation:true, confirmation_modal:{title:"Remover Item",text:"Deseja remover o item " + item.product.name + " do carrinho?" }}]}  buttonAction1={this.moveFavorite} buttonAction2={this.removeProduct} item={item} />)
+                                {basket.map((item, index) => { 
+                                    return (<ItemBasket key={index} setQuantity={this.setQuantity} buttons={[{name:"Mover para favoritos",action:"buttonAction1", style:"btn btn-outline-secondary", confirmation:false}, {name:"Remover", action:"buttonAction2", style:"btn btn-outline-danger", confirmation:true, confirmation_modal:{title:"Remover Item",text:"Deseja remover o item " + item.product.name + " do carrinho?" }}]}  buttonAction1={this.moveFavorite} buttonAction2={this.removeProduct} item={item} />)
                                 })
                                 }
                             </div>
                             <div className="col-6 col-md-4">
                                 <p className="card-text"><small className="text-muted">Total</small></p>
                                 <h2>R${this.state.total.toFixed(2)}</h2>
-                                <button type="button"disabled={this.state.total==0} onClick={()=>this.finally()} className="btn btn-warning btn-lg btn-block">Finalizar Compra</button>
+                                <button type="button"disabled={this.state.total===0} onClick={()=>this.finally()} className="btn btn-warning btn-lg btn-block">Finalizar Compra</button>
                             </div>
                         </div>
                     </div>
