@@ -34,7 +34,10 @@ export const addInBasketList = (product) => {
 }
 
 export const newIndexBasket = () => {
-    return basket[basket.length - 1].id + 1;
+    if(basket.length >0){
+        return (basket[basket.length - 1].id) + 1;
+    }
+    return 1;
 }
 
 export const removeInBasketList = (product) => {

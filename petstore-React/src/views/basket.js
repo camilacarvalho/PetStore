@@ -24,12 +24,12 @@ function Basket() {
 
     var moveFavorite = (item) => {
         remove(item);
-        addFavorites(item);
+        addFavorites(item.product);
 
     }
 
-    var addFavorites = (item) => {
-        addInFavoriteList(item);
+    var addFavorites = (product) => {
+        addInFavoriteList(product);
         notifyInfo("Movido para a lista de favoritos.");
     }
 
@@ -68,10 +68,8 @@ function Basket() {
 
                                 <center> <br /><h4>Você não tem itens no carrinho</h4>
                                     <h6>Calma que aqui tem tuuudo, vem com a gente :)</h6>
-                                    <a href=""> <button type="button" className="btn btn-outline-danger btn-sm">Ver Produtos</button></a>
+                                    <a href="#/"> <button type="button" className="btn btn-outline-danger btn-sm">Ver Produtos</button></a>
                                 </center>
-
-
                             </> : <></>}
                             {basket.map((item, index) => {
                                 return (<ItemBasket key={index} setQuantity={setQuantity} buttons={[{ name: "Mover para favoritos", action: "buttonAction1", style: "btn btn-outline-secondary", confirmation: false }, { name: "Remover", action: "buttonAction2", style: "btn btn-outline-danger", confirmation: true, confirmation_modal: { title: "Remover Item", text: "Deseja remover o item " + item.product.name + " do carrinho?" } }]} buttonAction1={moveFavorite} buttonAction2={removeProduct} item={item} />)
