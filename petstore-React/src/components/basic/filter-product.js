@@ -1,12 +1,13 @@
-import React,{useState} from 'react';
-function FilterProduct(props) {
-    var optionDefault=props.optionDefault;
-const [select, setSelect]=useState(optionDefault);
+import React, { useState } from 'react';
 
-var handleChange=(event)=> {
-   setSelect(event.target.value);
-   props.functionFilter("category", event.target.value)
-}
+function FilterProduct(props) {
+    var optionDefault = props.optionDefault;
+    const [select, setSelect] = useState(optionDefault);
+
+    var handleChange = (event) => {
+        setSelect(event.target.value);
+        props.functionFilter("category", event.target.value)
+    }
     return (
         <form>
             <div className="form-group">

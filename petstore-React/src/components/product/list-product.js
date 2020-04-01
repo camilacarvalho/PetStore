@@ -3,7 +3,7 @@ import RowProducts from './row-products'
 
 function ListProduct(props) {
     var products = [];
-    
+
     var prepareProduct = () => {
         var size = props.products.length;
         var quantList = Math.ceil(size / props.numberRow);
@@ -27,10 +27,10 @@ function ListProduct(props) {
         <>
             {prepareProduct()}
             {
-                products.map((product,index) => {
+                products.map((product, index) => {
                     return (
                         <RowProducts key={index} numberRow={props.numberRow} isDescription={props.isDescription} products={product} actionButton={props.actionButton} nameButton={props.nameButton} favoriteActionButton={props.favoriteActionButton} isCategory={props.isCategory} isRating={props.isRating} isFavorite={props.isFavorite} />
-                        
+
                     );
                 })
             }

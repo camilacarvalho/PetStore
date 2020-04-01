@@ -1,8 +1,7 @@
 
 import { favorites } from '../lists';
 import { basket } from '../lists';
-import {BasketModel} from '../model/basket-model'
-
+import { BasketModel } from '../model/basket-model'
 
 export const categories = [
     "ALIMENTO", "HIGIENE", "ACESSORIOS", "BRINQUEDOS"
@@ -16,34 +15,33 @@ export const isProductInFavoriteList = (product) => {
         }
     }
     return false;
-
 }
 
-export const addInFavoriteList = (product)=>{
+export const addInFavoriteList = (product) => {
     favorites.push(product);
 }
 
-export const removeInFavoriteList = (product)=>{
+export const removeInFavoriteList = (product) => {
     var index = favorites.indexOf(product);
-        if (index > -1) {
-            favorites.splice(index, 1);
-        }
+    if (index > -1) {
+        favorites.splice(index, 1);
+    }
 }
 
-export const addInBasketList =(product)=>{
+export const addInBasketList = (product) => {
     const item = new BasketModel(newIndexBasket(), product, 1);
     basket.push(item);
 }
 
-export const newIndexBasket=()=>{
-    return basket[basket.length-1].id+1;
+export const newIndexBasket = () => {
+    return basket[basket.length - 1].id + 1;
 }
 
-export const removeInBasketList = (product)=>{
+export const removeInBasketList = (product) => {
     var index = basket.indexOf(product);
-        if (index > -1) {
-            basket.splice(index, 1);
-        }
+    if (index > -1) {
+        basket.splice(index, 1);
+    }
 }
 
 export const isProductInBasketList = (product) => {
@@ -56,6 +54,6 @@ export const isProductInBasketList = (product) => {
 
 }
 
-export const resetBasket = ()=>{
+export const resetBasket = () => {
     basket.splice(0, basket.length);
 }

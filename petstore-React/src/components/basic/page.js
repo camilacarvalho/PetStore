@@ -62,15 +62,15 @@ function Page(props) {
             <div className="dropdown-divider"></div>
             <nav aria-label="...">
                 <ul className="pagination justify-content-center">
-                   {previousPageEnable()?(<li className="page-item active">
-                        <a className="page-link" onClick={()=>previousPage()}>Previous</a>
-                    </li>):(
-                    <li className="page-item disabled">
-                        <a className="page-link">Previous</a>
-                    </li>)}
-                   
+                    {previousPageEnable() ? (<li className="page-item active">
+                        <a className="page-link" onClick={() => previousPage()}>Previous</a>
+                    </li>) : (
+                            <li className="page-item disabled">
+                                <a className="page-link">Previous</a>
+                            </li>)}
+
                     {nextPageEnable() ? (<li className="page-item active">
-                        <a className="page-link" onClick={()=>nextPage()}>Next</a>
+                        <a className="page-link" onClick={() => nextPage()}>Next</a>
                     </li>) : (<li className="page-item disabled">
                         <a className="page-link" href="#">Next</a>
                     </li>)}
