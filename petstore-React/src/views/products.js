@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FilterProduct from '../components/basic/filter-product';
 import ListProduct from '../components/product/list-product';
 import { notifyInfo, notifyCode } from '../utils/toast-utils';
@@ -42,7 +42,7 @@ function Products() {
 
     return (
         <>
-            {notifyCode()}
+             {notifyCode()}
             <div className="container-sm">
                 <br />
                 <div className="card" style={{ padding: "2rem" }}>

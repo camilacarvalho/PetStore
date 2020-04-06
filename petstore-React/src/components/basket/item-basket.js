@@ -1,6 +1,6 @@
 import React from 'react';
 import Counter from '../basic/counter';
-import ItemCard from '../basic/item-card';
+import ItemCard from '../card/item-card';
 
 function ItemBasket(props) {
 

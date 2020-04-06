@@ -60,4 +60,4 @@ export const isProductInBasketList = (product) => {
 
 export const resetBasket = () => {
     basket.splice(0, basket.length);
-}
+} 

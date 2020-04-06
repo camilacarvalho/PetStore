@@ -5,10 +5,6 @@ function RowProducts(props) {
 
     var products = props.products;
 
-    var concatena = (c1, c2) => {
-        return <>{c1}{c2}</>
-    }
-
     return (
         <>
             <div className="card-group">

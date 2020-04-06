@@ -1,6 +1,6 @@
 import React from 'react';
-import ListButtonsCard from '../basic/list-buttons-card';
-import InfoBodyCard from '../basic/info-body-card';
+import ListButtonsCard from './list-buttons-card';
+import InfoBodyCard from './info-body-card';
 
 function ItemCard(props) {
 
