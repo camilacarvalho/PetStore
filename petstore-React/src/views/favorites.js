@@ -39,7 +39,16 @@ function Favorites() {
                             <a href="#/"> <button type="button" className="btn btn-outline-danger btn-sm">Ver Produtos</button></a>
                         </center>
                     </> : <></>}
-                    <ListProduct actionButton={moveBasket} nameButton="Mover para o carrinho" numberRow={4} isDescription={false} isCategory={false} isRating={false} isFavorite={true} favoriteActionButton={removeFavorite} products={products} />
+                    <ListProduct 
+                    buttons={[{ name: "Mover para o carrinho", action: "buttonAction1", style: "btn btn-outline-secondary", confirmation: false }]}
+                    buttonAction1={moveBasket} 
+                    numberRow={4} 
+                    isDescription={false} 
+                    isCategory={false} 
+                    isRating={false} 
+                    isFavorite={true} 
+                    favoriteActionButton={removeFavorite} 
+                    products={products} />
                     <br />
                 </div>
             </div>

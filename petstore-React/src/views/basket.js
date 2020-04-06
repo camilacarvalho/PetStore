@@ -9,6 +9,7 @@ function Basket() {
     const [total, setTotal] = useState(0);
 
     var removeProduct = (item) => {
+        console.log(item)
         remove(item);
         notifyInfo("Removido do carrinho de compras.");
     }
@@ -52,7 +53,7 @@ function Basket() {
         setTotal(0);
         resetBasket();
     }
-
+ 
     return (
         <>
             {notifyCode()}
@@ -72,7 +73,12 @@ function Basket() {
                                 </center>
                             </> : <></>}
                             {basket.map((item, index) => {
-                                return (<ItemBasket key={index} setQuantity={setQuantity} buttons={[{ name: "Mover para favoritos", action: "buttonAction1", style: "btn btn-outline-secondary", confirmation: false }, { name: "Remover", action: "buttonAction2", style: "btn btn-outline-danger", confirmation: true, confirmation_modal: { title: "Remover Item", text: "Deseja remover o item " + item.product.name + " do carrinho?" } }]} buttonAction1={moveFavorite} buttonAction2={removeProduct} item={item} />)
+                                return (<ItemBasket key={index} 
+                                    setQuantity={setQuantity} 
+                                    buttons={[{ name: "Mover para favoritos", action: "buttonAction1", style: "btn btn-outline-secondary", confirmation: false }, { name: "Remover", action: "buttonAction2", style: "btn btn-outline-danger", confirmation: true, confirmation_modal: { title: "Remover Item", text: "Deseja remover o item " + item.product.name + " do carrinho?" } }]} 
+                                    buttonAction1={moveFavorite} 
+                                    buttonAction2={removeProduct} 
+                                    item={item} />)
                             })
                             }
                         </div>

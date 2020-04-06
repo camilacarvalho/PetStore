@@ -17,6 +17,6 @@ const product10 = new Product(10, "Brinquedo para mastigar", "Brinquedo de borra
 export const products = [product1, product2, product3, product4, product5, product6, product7, product8, product9, product10];
 export const favorites = [product2, product3, product4, product5, product6, product7];
 
-const item1 = new BasketModel(1, product1, 1);
-const item2 = new BasketModel(2, product2, 1);
+const item1 = new BasketModel(product1, 1);
+const item2 = new BasketModel(product2, 1);
 export const basket = [item1, item2];

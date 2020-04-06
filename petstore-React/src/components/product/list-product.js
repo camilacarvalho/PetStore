@@ -4,7 +4,7 @@ import RowProducts from './row-products'
 function ListProduct(props) {
     var products = [];
 
-    var prepareProduct = () => {
+    var prepareProductListByLine = () => {
         var size = props.products.length;
         var quantList = Math.ceil(size / props.numberRow);
         var indexProduto = 0;
@@ -25,11 +25,11 @@ function ListProduct(props) {
 
     return (
         <>
-            {prepareProduct()}
+            {prepareProductListByLine()}
             {
                 products.map((product, index) => {
                     return (
-                        <RowProducts key={index} numberRow={props.numberRow} isDescription={props.isDescription} products={product} actionButton={props.actionButton} nameButton={props.nameButton} favoriteActionButton={props.favoriteActionButton} isCategory={props.isCategory} isRating={props.isRating} isFavorite={props.isFavorite} />
+                        <RowProducts key={index} numberRow={props.numberRow} isDescription={props.isDescription} products={product} buttonAction1={props.buttonAction1}  buttons={props.buttons} favoriteActionButton={props.favoriteActionButton} isCategory={props.isCategory} isRating={props.isRating} isFavorite={props.isFavorite} />
 
                     );
                 })

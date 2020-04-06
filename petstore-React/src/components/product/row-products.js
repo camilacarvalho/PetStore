@@ -9,26 +9,20 @@ function RowProducts(props) {
         return <>{c1}{c2}</>
     }
 
-    var prepareProduct = () => {
-        if (props.products.length < props.numberRow) {
-            var quant = (props.numberRow - props.products.length);
-            let retorno = <div className="card"></div>;
-            for (let index = 0; index < quant - 1; index++) {
-                retorno = concatena(retorno, <div className="card"></div>);
-            }
-            return (retorno);
-        }
-    };
-
     return (
         <>
             <div className="card-group">
                 {(products).map((product, index) => {
                     return (
-                        <ItemProduct key={index} actionButton={props.actionButton} isDescription={props.isDescription} nameButton={props.nameButton} favoriteActionButton={props.favoriteActionButton} isCategory={props.isCategory} isRating={props.isRating} isFavorite={props.isFavorite} product={product} />
+                        <ItemProduct key={index} isDescription={props.isDescription} buttonAction1={props.buttonAction1} buttons={props.buttons} favoriteActionButton={props.favoriteActionButton} isCategory={props.isCategory} isRating={props.isRating} isFavorite={props.isFavorite} product={product} />
                     );
                 })}
-                {prepareProduct()}
+
+                { (props.products.length < props.numberRow) ? 
+                <> {Array(props.numberRow - props.products.length).fill().map((x) => <div className="card"></div>)} </>
+                :
+                <></>
+                }               
             </div>
         </>
     );

@@ -18,7 +18,9 @@ export const isProductInFavoriteList = (product) => {
 }
 
 export const addInFavoriteList = (product) => {
-    favorites.push(product);
+    if(!isProductInFavoriteList(product)){
+        favorites.push(product);
+    }
 }
 
 export const removeInFavoriteList = (product) => {
@@ -29,15 +31,15 @@ export const removeInFavoriteList = (product) => {
 }
 
 export const addInBasketList = (product) => {
-    const item = new BasketModel(newIndexBasket(), product, 1);
-    basket.push(item);
-}
-
-export const newIndexBasket = () => {
-    if(basket.length >0){
-        return (basket[basket.length - 1].id) + 1;
+    if(!isProductInBasketList(product)){
+        console.log("product")
+        console.log(product)
+        const item = new BasketModel(product, 1);
+        console.log("item")
+        console.log(item)
+        basket.push(item);
     }
-    return 1;
+    
 }
 
 export const removeInBasketList = (product) => {
@@ -49,12 +51,11 @@ export const removeInBasketList = (product) => {
 
 export const isProductInBasketList = (product) => {
     for (let index = 0; index < basket.length; index++) {
-        const item = basket[index];
+        const item = basket[index].product;
         if (item.id === product.id) {
             return true;
         }
     }
-
 }
 
 export const resetBasket = () => {

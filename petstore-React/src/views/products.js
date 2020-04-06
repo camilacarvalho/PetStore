@@ -40,13 +40,6 @@ function Products() {
         }
     }
 
-    /*
-    var pageList = (list) => {
-        console.log(list);
-        setProductList(list);
-    }*/
-
-
     return (
         <>
             {notifyCode()}
@@ -56,8 +49,23 @@ function Products() {
                     <h3>Nossos Produtos</h3>
 
                     <div className="dropdown-divider"></div>
-                    <FilterProduct optionDefault={optionDefault} name="Categorias" categories={categories} functionFilter={filter} />
-                    <ListProduct actionButton={addBasket} nameButton="Adicionar ao carrinho" numberRow={3} isDescription={true} isCategory={true} isRating={true} isFavorite={true} favoriteActionButton={addFavorites} products={productList} />
+                    
+                    <FilterProduct 
+                    optionDefault={optionDefault} 
+                    name="Categorias" 
+                    categories={categories} 
+                    functionFilter={filter} />
+
+                    <ListProduct 
+                    buttonAction1={addBasket}
+                    buttons={[{ name: "Adicionar ao carrinho", action: "buttonAction1", style: "btn btn-outline-secondary", confirmation: false }]}
+                    numberRow={3} 
+                    isDescription={true} 
+                    isCategory={true} 
+                    isRating={true} 
+                    isFavorite={true} 
+                    favoriteActionButton={addFavorites} 
+                    products={productList} />
                     <br />
                 </div></div>
             <br />
