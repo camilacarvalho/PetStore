@@ -1,7 +1,8 @@
 
 import { favorites } from '../lists';
 import { basket } from '../lists';
-import { BasketModel } from '../model/basket-model'
+import { BasketModel } from '../model/basket-model';
+import {addProductInBasket} from '../utils/request';
 
 export const categories = [
     "ALIMENTO", "HIGIENE", "ACESSORIOS", "BRINQUEDOS"
@@ -31,30 +32,16 @@ export const removeInFavoriteList = (product) => {
 }
 
 export const addInBasketList = (product) => {
-    if(!isProductInBasketList(product)){
-        console.log("product")
-        console.log(product)
         const item = new BasketModel(product, 1);
         console.log("item")
-        console.log(item)
-        basket.push(item);
-    }
-    
+        //basket.push(item);
+        addProductInBasket(item);    
 }
 
 export const removeInBasketList = (product) => {
     var index = basket.indexOf(product);
     if (index > -1) {
         basket.splice(index, 1);
-    }
-}
-
-export const isProductInBasketList = (product) => {
-    for (let index = 0; index < basket.length; index++) {
-        const item = basket[index].product;
-        if (item.id === product.id) {
-            return true;
-        }
     }
 }
 

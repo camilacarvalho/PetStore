@@ -15,8 +15,6 @@ function ListButtonsCard(props) {
     }
 
     var actionButton = (button) => {
-        console.log(button)
-        console.log(props)
         props[button.action](props.item);
         if (button.confirmation) {
             handleClose();

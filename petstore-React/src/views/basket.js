@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ItemBasket from '../components/basket/item-basket';
 import { notifyInfo, notifyCode, notifySuccess } from '../utils/toast-utils';
 import { resetBasket, addInFavoriteList, removeInBasketList } from '../utils/product-utils';
-import {urlGetBasket, getRequestInit} from '../utils/url-request-utils'; 
+import {urlGetBasket, getRequestInit} from '../utils/request'; 
 
 function Basket() {
 
@@ -12,7 +12,6 @@ function Basket() {
 
 
     var removeProduct = (item) => {
-        console.log(item)
         remove(item);
         notifyInfo("Removido do carrinho de compras.");
     }
@@ -62,7 +61,6 @@ function Basket() {
         .then(res => res.json())
         .then(response=>{
             setBasket(response);
-            console.log(response);
         })
         .catch(error=>console.log(error))
         }, [page])

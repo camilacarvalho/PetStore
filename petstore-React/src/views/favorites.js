@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ListProduct from '../components/product/list-product';
 import { notifyInfo, notifyCode } from '../utils/toast-utils';
 import { addInBasketList, removeInFavoriteList } from '../utils/product-utils';
-import {urlGetFavorites, getRequestInit} from '../utils/url-request-utils'; 
+import {urlGetFavorites, getRequestInit} from '../utils/request'; 
 
 function Favorites() {
 
@@ -22,7 +22,6 @@ function Favorites() {
         .then(res => res.json())
         .then(response=>{
             setProducts(response)
-            console.log(response);
         })
         .catch(error=>console.log(error))
     },[page])
