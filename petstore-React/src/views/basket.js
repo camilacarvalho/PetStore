@@ -3,6 +3,7 @@ import ItemBasket from '../components/basket/item-basket';
 import { notifyInfo, notifyCode, notifySuccess } from '../utils/toast-utils';
 import { basket } from '../lists';
 import { resetBasket, addInFavoriteList, removeInBasketList } from '../utils/product-utils';
+import {urlGetBasket, getRequestInit} from '../utils/url-request-utils'; 
 
 function Basket() {
 
@@ -53,6 +54,15 @@ function Basket() {
         setTotal(0);
         resetBasket();
     }
+
+    useEffect(() => {
+        fetch(urlGetBasket,getRequestInit)
+        .then(res => res.json())
+        .then(response=>{
+            console.log(response);
+        })
+        .catch(error=>console.log(error))
+        })
  
     return (
         <>

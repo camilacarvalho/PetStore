@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ListProduct from '../components/product/list-product';
 import { notifyInfo, notifyCode } from '../utils/toast-utils';
 import { favorites } from '../lists';
 import { addInBasketList, removeInFavoriteList } from '../utils/product-utils';
+import {urlGetFavorites, getRequestInit} from '../utils/url-request-utils'; 
 
 function Favorites() {
 
@@ -12,6 +13,15 @@ function Favorites() {
         remove(product);
         notifyInfo("Item removido dos favoritos");
     };
+    
+    useEffect(() => {
+        fetch(urlGetFavorites,getRequestInit )
+        .then(res => res.json())
+        .then(response=>{
+            console.log(response);
+        })
+        .catch(error=>console.log(error))
+    })
 
     var moveBasket = (product) => {
         remove(product);

@@ -4,6 +4,7 @@ import ListProduct from '../components/product/list-product';
 import { notifyInfo, notifyCode } from '../utils/toast-utils';
 import { categories } from '../utils/product-utils';
 import { products } from '../lists';
+import {urlGetProducts, urlGetCategories, getRequestInit} from '../utils/url-request-utils'; 
 import { isProductInFavoriteList, addInBasketList, addInFavoriteList, removeInFavoriteList } from '../utils/product-utils';
 
 function Products() {
@@ -25,8 +26,25 @@ function Products() {
             notifyInfo("Item removido da lista de favoritos");
         }
         setProductList(productList.slice());
-
     }
+
+    useEffect(() => {
+        fetch(urlGetProducts,getRequestInit)
+        .then(res => res.json())
+        .then(response=>{
+            console.log(response);
+        })
+        .catch(error=>console.log(error))
+    })
+
+    useEffect(() => {
+        fetch(urlGetCategories,getRequestInit)
+        .then(res => res.json())
+        .then(response=>{
+            console.log(response);
+        })
+        .catch(error=>console.log(error))
+    })
 
     var filter = (atribute, value) => {
         if (value == optionDefault.value) {
