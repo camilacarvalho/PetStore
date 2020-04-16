@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import ListProduct from '../components/product/list-product';
 import { notifyInfo, notifyCode } from '../utils/toast-utils';
-import { favorites } from '../lists';
 import { addInBasketList, removeInFavoriteList } from '../utils/product-utils';
 import {urlGetFavorites, getRequestInit} from '../utils/url-request-utils'; 
 
 function Favorites() {
 
-    const [products, setProducts] = useState(favorites.slice());
+    const [products, setProducts] = useState([]);
+  //  const [favorites, setFavorites] = useState([]);
+    const [page, setPage] = useState(1);
+
+
 
     var removeFavorite = (product) => {
         remove(product);
@@ -18,10 +21,11 @@ function Favorites() {
         fetch(urlGetFavorites,getRequestInit )
         .then(res => res.json())
         .then(response=>{
+            setProducts(response)
             console.log(response);
         })
         .catch(error=>console.log(error))
-    })
+    },[page])
 
     var moveBasket = (product) => {
         remove(product);
@@ -31,7 +35,7 @@ function Favorites() {
 
     var remove = (product) => {
         removeInFavoriteList(product);
-        setProducts(favorites.slice());
+        setProducts(products.slice());
     };
 
     return (
