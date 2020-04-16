@@ -3,14 +3,16 @@ import FilterProduct from '../components/basic/filter-product';
 import ListProduct from '../components/product/list-product';
 import { notifyInfo, notifyCode } from '../utils/toast-utils';
 import { categories } from '../utils/product-utils';
-import { products } from '../lists';
 import {urlGetProducts, urlGetCategories, getRequestInit} from '../utils/url-request-utils'; 
 import { isProductInFavoriteList, addInBasketList, addInFavoriteList, removeInFavoriteList } from '../utils/product-utils';
 
 function Products() {
 
     var optionDefault = { text: "Selecione uma categoria", value: 0 };
-    const [productList, setProductList] = useState(products.slice());
+    const [products, setProducts] = useState([])
+    const [productList, setProductList] = useState([]);
+    const [page, setPage] = useState(1);
+
 
     var addBasket = (product) => {
         addInBasketList(product);
@@ -33,9 +35,11 @@ function Products() {
         .then(res => res.json())
         .then(response=>{
             console.log(response);
+            setProducts(response);
+            setProductList(response);
         })
         .catch(error=>console.log(error))
-    })
+    }, [page]);
 
     useEffect(() => {
         fetch(urlGetCategories,getRequestInit)
@@ -44,11 +48,11 @@ function Products() {
             console.log(response);
         })
         .catch(error=>console.log(error))
-    })
+    }, [page]);
 
     var filter = (atribute, value) => {
         if (value == optionDefault.value) {
-            setProductList(products.slice());
+            setProductList(products);
         } else {
             var listFilter = [];
             products.filter(prod => prod[atribute].toUpperCase() == value).map(productFiltered => (
@@ -65,14 +69,13 @@ function Products() {
                 <br />
                 <div className="card" style={{ padding: "2rem" }}>
                     <h3>Nossos Produtos</h3>
-
                     <div className="dropdown-divider"></div>
                     
                     <FilterProduct 
                     optionDefault={optionDefault} 
                     name="Categorias" 
                     categories={categories} 
-                    functionFilter={filter} />
+                    functionFilter={filter} />                
 
                     <ListProduct 
                     buttonAction1={addBasket}
@@ -85,7 +88,9 @@ function Products() {
                     favoriteActionButton={addFavorites} 
                     products={productList} />
                     <br />
-                </div></div>
+                </div>
+                
+            </div>
             <br />
             <br />
         </>
