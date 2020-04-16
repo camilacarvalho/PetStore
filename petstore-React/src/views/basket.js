@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import ItemBasket from '../components/basket/item-basket';
 import { notifyInfo, notifyCode, notifySuccess } from '../utils/toast-utils';
-import { basket } from '../lists';
 import { resetBasket, addInFavoriteList, removeInBasketList } from '../utils/product-utils';
 import {urlGetBasket, getRequestInit} from '../utils/url-request-utils'; 
 
 function Basket() {
 
+    const [basket, setBasket] = useState([])
     const [total, setTotal] = useState(0);
+    const [page, setPage] = useState(0);
+
 
     var removeProduct = (item) => {
         console.log(item)
@@ -59,10 +61,11 @@ function Basket() {
         fetch(urlGetBasket,getRequestInit)
         .then(res => res.json())
         .then(response=>{
+            setBasket(response);
             console.log(response);
         })
         .catch(error=>console.log(error))
-        })
+        }, [page])
  
     return (
         <>
