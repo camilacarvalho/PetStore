@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import ListProduct from '../components/product/list-product';
 import { notifyInfo, notifyCode } from '../utils/toast-utils';
 import { addInBasketList, removeInFavoriteList } from '../utils/product-utils';
-import {urlGetFavorites, getRequestInit} from '../utils/request'; 
+import {urlGetOrPostFavorites, getRequestInit} from '../utils/request'; 
 
 function Favorites() {
 
     const [products, setProducts] = useState([]);
-  //  const [favorites, setFavorites] = useState([]);
     const [page, setPage] = useState(1);
 
 
@@ -18,7 +17,7 @@ function Favorites() {
     };
     
     useEffect(() => {
-        fetch(urlGetFavorites,getRequestInit )
+        fetch(urlGetOrPostFavorites,getRequestInit )
         .then(res => res.json())
         .then(response=>{
             setProducts(response)

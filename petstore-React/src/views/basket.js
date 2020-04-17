@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ItemBasket from '../components/basket/item-basket';
 import { notifyInfo, notifyCode, notifySuccess } from '../utils/toast-utils';
 import { resetBasket, addInFavoriteList, removeInBasketList } from '../utils/product-utils';
-import {urlGetBasket, getRequestInit} from '../utils/request'; 
+import {urlGetOrPostBasket, getRequestInit} from '../utils/request'; 
 
 function Basket() {
 
@@ -57,7 +57,7 @@ function Basket() {
     }
 
     useEffect(() => {
-        fetch(urlGetBasket,getRequestInit)
+        fetch(urlGetOrPostBasket,getRequestInit)
         .then(res => res.json())
         .then(response=>{
             setBasket(response);
