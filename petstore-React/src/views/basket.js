@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ItemBasket from '../components/basket/item-basket';
 import { notifyInfo, notifyCode, notifySuccess } from '../utils/toast-utils';
-import {removeProductInBasket,addProductInFavorite, resetAllBasket, putProductInBasket} from '../utils/request';
-import {urlGetOrPostOrDeleteAllBasket, getRequestInit} from '../utils/request'; 
+import {urlDeleteOrPutProductInBasket, getRequestInit,deleteRequestInit,addProductInFavorite, urlGetOrPostOrDeleteAllBasket, putProductInBasket} from '../utils/request';
 
 function Basket() {
 
@@ -23,12 +22,21 @@ function Basket() {
     var remove = (item) => {
         removeProductInBasket(item.id)
         calculaTotal();
+       // putBasketList();
+    }
+
+    var removeProductInBasket = (id) => {
+        fetch(urlDeleteOrPutProductInBasket.replace('{id}', id), deleteRequestInit())
+            .then(res => res.json())
+            .then(response => {
+                setBasket(response);
+            })
+            .catch(error => console.log(error))
     }
 
     var moveFavorite = (item) => {
         remove(item);
         addFavorites(item.product);
-
     }
 
     var addFavorites = (product) => {
@@ -55,13 +63,27 @@ function Basket() {
         resetAllBasket();
     }
 
-    useEffect(() => {
+
+    var putBasketList = () =>{
         fetch(urlGetOrPostOrDeleteAllBasket,getRequestInit)
         .then(res => res.json())
         .then(response=>{
             setBasket(response);
         })
         .catch(error=>console.log(error))
+    }
+
+    var resetAllBasket = () => {
+        fetch(urlGetOrPostOrDeleteAllBasket, deleteRequestInit())
+            .then(res => res.json())
+            .then(response => {
+                setBasket(response);
+            })
+            .catch(error => console.log(error))
+    }
+
+    useEffect(() => {
+        putBasketList();    
         }, [page])
  
     return (

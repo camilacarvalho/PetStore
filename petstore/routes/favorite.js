@@ -8,10 +8,6 @@ router.get('/', function (req, res, next) {
   res.json(favorites);
 });
 
-router.get('/contains/:id', function(req, res, next){
-  let id = req.params.id;
-  res.json(contains(id));
-})
 /* POST favorite. */
 router.post('/', function (req, res, next) {
   //req.body.id = favorites[favorites.length-1].id+1;
@@ -26,7 +22,7 @@ router.post('/', function (req, res, next) {
 router.delete('/:id', function (req, res, next) {
   var id = req.params.id;
   remove_favorite(id);
-  res.json(this.favorites);
+  res.json(favorites);
   res.status("204");
 });
 
@@ -43,5 +39,10 @@ function remove_favorite(id) {
   }
   return product;
 };
+
+router.get('/contains/:id', function(req, res, next){
+  let id = req.params.id;
+  res.json(contains(id));
+})
 
 module.exports = router;

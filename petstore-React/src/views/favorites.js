@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import ListProduct from '../components/product/list-product';
 import { notifyInfo, notifyCode } from '../utils/toast-utils';
-import {urlGetOrPostFavorites, getRequestInit, addInBasketList, removeProductInFavorite} from '../utils/request';
+import {urlGetOrPostFavorites, getRequestInit, addInBasketList,  urlDeleteProductInFavorites, deleteRequestInit} from '../utils/request';
 
 function Favorites() {
 
     const [products, setProducts] = useState([]);
     const [page, setPage] = useState(1);
-
-
 
     var removeFavorite = (product) => {
         remove(product.id);
@@ -16,12 +14,7 @@ function Favorites() {
     };
     
     useEffect(() => {
-        fetch(urlGetOrPostFavorites,getRequestInit )
-        .then(res => res.json())
-        .then(response=>{
-            setProducts(response)
-        })
-        .catch(error=>console.log(error))
+        putFavorites();
     },[page])
 
     var moveBasket = (product) => {
@@ -32,9 +25,28 @@ function Favorites() {
 
     var remove = (id) => {
         removeProductInFavorite(id);
-        setProducts(products.slice());
+        //  putFavorites();
     };
 
+    var removeProductInFavorite = (id) => {
+        fetch(urlDeleteProductInFavorites.replace('{id}', id), deleteRequestInit())
+            .then(res => res.json())
+            .then(response => {
+                console.log(response);
+                setProducts(response);
+            })
+            .catch(error => console.log(error))
+    }
+
+    var putFavorites = () =>{
+        fetch(urlGetOrPostFavorites,getRequestInit )
+        .then(res => res.json())
+        .then(response=>{
+            setProducts(response)
+        })
+        .catch(error=>console.log(error))
+    }
+    
     return (
         <>
             {notifyCode()}

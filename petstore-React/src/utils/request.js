@@ -81,26 +81,9 @@ export const removeProductInFavorite = (id) => {
         .catch(error => console.log(error))
 }
 
-export const removeProductInBasket = (id) => {
-    fetch(urlDeleteOrPutProductInBasket.replace('{id}', id), deleteRequestInit())
-        .then(res => res.json())
-        .then(response => {
-            console.log(response);
-        })
-        .catch(error => console.log(error))
-}
 
 export const putProductInBasket = (product) =>{
     fetch(urlDeleteOrPutProductInBasket.replace('{id}', product.id), putRequestInit(product))
-        .then(res => res.json())
-        .then(response => {
-            console.log(response);
-        })
-        .catch(error => console.log(error))
-}
-
-export const resetAllBasket = () => {
-    fetch(urlGetOrPostOrDeleteAllBasket, deleteRequestInit())
         .then(res => res.json())
         .then(response => {
             console.log(response);
