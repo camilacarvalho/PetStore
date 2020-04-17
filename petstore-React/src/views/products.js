@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import FilterProduct from '../components/basic/filter-product';
 import ListProduct from '../components/product/list-product';
 import { notifyInfo, notifyCode } from '../utils/toast-utils';
-import { urlGetProducts, urlGetCategories, getRequestInit } from '../utils/request';
-import { isProductInFavoriteList, addInBasketList, addInFavoriteList, removeInFavoriteList } from '../utils/product-utils';
+import { urlGetProducts, urlGetCategories, urlContainsFavorites, addInBasketList, getRequestInit, addProductInFavorite, removeProductInFavorite} from '../utils/request';
 
 function Products() {
 
@@ -12,23 +11,6 @@ function Products() {
     const [productList, setProductList] = useState([]);
     const [categories, setCategories] = useState([]);
     const [page, setPage] = useState(1);
-
-
-    var addBasket = (product) => {
-        addInBasketList(product);
-        notifyInfo("Item adicionado ao carrinho")
-    }
-
-    var addFavorites = (product) => {
-        if (!isProductInFavoriteList(product)) {
-            addInFavoriteList(product);
-            notifyInfo("Item adicionado a lista de favoritos");
-        } else {
-            removeInFavoriteList(product);
-            notifyInfo("Item removido da lista de favoritos");
-        }
-        setProductList(productList.slice());
-    }
 
     useEffect(() => {
         fetch(urlGetProducts, getRequestInit)
@@ -48,6 +30,28 @@ function Products() {
             })
             .catch(error => console.log(error))
     }, [page]);
+
+    var addBasket = (product) => {
+        addInBasketList(product);
+        notifyInfo("Item adicionado ao carrinho")
+    }
+
+    var addFavorites = (product) => {
+        fetch(urlContainsFavorites.replace('{id}', product.id), getRequestInit)
+        .then(res => res.json())
+        .then(response => {
+            console.log(response);
+            if(response===true){
+                removeProductInFavorite(product.id);
+                notifyInfo("Item removido da lista de favoritos");
+            }else{
+                addProductInFavorite(product);
+                notifyInfo("Item adicionado a lista de favoritos");
+            }
+            setProductList(productList.slice());
+        })
+        .catch(error => console.log(error))
+    }
 
     var filter = (atribute, value) => {
         if (value == optionDefault.value) {

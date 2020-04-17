@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ItemBasket from '../components/basket/item-basket';
 import { notifyInfo, notifyCode, notifySuccess } from '../utils/toast-utils';
-import { resetBasket, addInFavoriteList, removeInBasketList } from '../utils/product-utils';
-import {urlGetOrPostBasket, getRequestInit} from '../utils/request'; 
+import {removeProductInBasket,addProductInFavorite, resetAllBasket, putProductInBasket} from '../utils/request';
+import {urlGetOrPostOrDeleteAllBasket, getRequestInit} from '../utils/request'; 
 
 function Basket() {
 
@@ -21,7 +21,7 @@ function Basket() {
     });
 
     var remove = (item) => {
-        removeInBasketList(item)
+        removeProductInBasket(item.id)
         calculaTotal();
     }
 
@@ -32,13 +32,12 @@ function Basket() {
     }
 
     var addFavorites = (product) => {
-        addInFavoriteList(product);
+        addProductInFavorite(product);
         notifyInfo("Movido para a lista de favoritos.");
     }
 
     var setQuantity = (item) => {
-        var index = basket.indexOf(item);
-        basket[index] = item;
+        putProductInBasket(item);
         calculaTotal();
     }
 
@@ -53,11 +52,11 @@ function Basket() {
     var buy = () => {
         notifySuccess("Compra realizada com sucesso.");
         setTotal(0);
-        resetBasket();
+        resetAllBasket();
     }
 
     useEffect(() => {
-        fetch(urlGetOrPostBasket,getRequestInit)
+        fetch(urlGetOrPostOrDeleteAllBasket,getRequestInit)
         .then(res => res.json())
         .then(response=>{
             setBasket(response);

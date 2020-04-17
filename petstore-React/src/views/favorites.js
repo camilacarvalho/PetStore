@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ListProduct from '../components/product/list-product';
 import { notifyInfo, notifyCode } from '../utils/toast-utils';
-import { addInBasketList, removeInFavoriteList } from '../utils/product-utils';
-import {urlGetOrPostFavorites, getRequestInit} from '../utils/request'; 
+import {urlGetOrPostFavorites, getRequestInit, addInBasketList, removeProductInFavorite} from '../utils/request';
 
 function Favorites() {
 
@@ -12,7 +11,7 @@ function Favorites() {
 
 
     var removeFavorite = (product) => {
-        remove(product);
+        remove(product.id);
         notifyInfo("Item removido dos favoritos");
     };
     
@@ -26,13 +25,13 @@ function Favorites() {
     },[page])
 
     var moveBasket = (product) => {
-        remove(product);
+        remove(product.id);
         addInBasketList(product);
         notifyInfo("Item movido para o carrinho");
     };
 
-    var remove = (product) => {
-        removeInFavoriteList(product);
+    var remove = (id) => {
+        removeProductInFavorite(id);
         setProducts(products.slice());
     };
 

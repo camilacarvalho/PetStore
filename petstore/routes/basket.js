@@ -9,50 +9,55 @@ router.get('/', function (req, res, next) {
   res.json(shopping_cart);
 });
 
-function containsProductInBasket(id){
-  for (let index = 0; index < shopping_cart.length; index++) {
-    const item = shopping_cart[index].product;
-    if (item.id === id) {
-        return true;
-    }
-}
-return false;
+function contains(id) {
+  return shopping_cart.some(basket => basket.id == id);
 }
 
 /* POST shopping cart. */
 router.post('/', function (req, res, next) {
-  //req.body.id = shopping_cart[shopping_cart.length-1].id+1;
-  console.log(req.body.id);
-  if(!containsProductInBasket(req.body.id)){
-  shopping_cart.push(req.body);
+  if (!contains(req.body.id)) {
+    shopping_cart.push(req.body);
+  }
   res.json(req.body);
   res.status("201");
+})
+
+router.put('/:id', function(req, res, next){
+  var id = req.params.id;
+  console.log(req.body);
+  console.log(shopping_cart);
+  for (var i = 0; i < shopping_cart.length; i++) {
+    if (shopping_cart[i].id == id) {
+      shopping_cart[i]=req.body;
+    }
   }
+  console.log(shopping_cart);
+  res.json(req.body);
+  res.status("200");
 });
-  
+
 /* DELETE shopping cart. */
-router.delete('/:id', function(req, res, next){
+router.delete('/:id', function (req, res, next) {
   var id = req.params.id;
   remove_basket(id);
-  res.json(this.shopping_cart);
+  res.json(shopping_cart);
   res.status("204");
 });
 
-function remove_basket (id) {
+router.delete ('/', function(req, res, next){
+  shopping_cart.splice(0,shopping_cart.length);
+  res.json(shopping_cart);
+  res.status("204");
+})
+
+function remove_basket(id) {
   var product;
-  for( var i = 0; i < shopping_cart.length; i++){ 
-    if(shopping_cart[i].id==id){
-      shopping_cart.splice(i,1);
+  for (var i = 0; i < shopping_cart.length; i++) {
+    if (shopping_cart[i].id == id) {
+      shopping_cart.splice(i, 1);
     }
   }
   return product;
 }
-
-router.post('/move-favorite/:id', function(req, res, next){
-  var id = req.params.id;
-  var product = remove_basket(id);
-  //add a lista de basket
-  
-});
 
 module.exports = router;
