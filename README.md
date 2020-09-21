@@ -1,7 +1,7 @@
 # Pet Store
 Essa é uma loja virtual onde usuários podem comprar produtos para seus pets. 
 Eles podem filtrar os produtos por categorias de compras, adicionar ou remover a lista de favoritos e adicionar ou remover do carrinho de compras.
-## Execução do projeto
+### Execução do projeto
 Para instalar as dependências, execute o seguinte comando:
 
 ```sh
