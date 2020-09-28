@@ -4,8 +4,7 @@ var Product = require('../public/javascripts/model/product');
 var products = require('../public/json/product.json');
 var categories = require('../public/json/categories.json');
 
-favorites = [];
-favorites.push(products[1]);
+favorites = [products[1]];
 
 /* GET categories list. */
 router.get('/categories', function (req, res, next) {
