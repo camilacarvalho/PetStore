@@ -1,48 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var Product = require('../public/javascripts/model/product');
-var favorites = require('../public/json/favorites.json');
+
+const favorites_controller = require('../controllers/favorite')
 
 /* GET favorites list. */
-router.get('/', function (req, res, next) {
-  res.json(favorites);
-});
+router.get('/', favorites_controller.all_items);
 
 /* POST favorite. */
-router.post('/', function (req, res, next) {
-  //req.body.id = favorites[favorites.length-1].id+1;
-  if (!contains(req.body.id)) {
-    favorites.push(req.body);
-  }
-  res.json(req.body);
-  res.status("201");
-});
+router.post('/', favorites_controller.create_items);
 
 /* DELETE favorite. */
-router.delete('/:id', function (req, res, next) {
-  var id = req.params.id;
-  remove_favorite(id);
-  res.json(favorites);
-  res.status("204");
-});
+router.delete('/:id', favorites_controller.delete_item);
 
-function contains(id) {
-  return favorites.some(favorite => favorite.id == id);
-}
-
-function remove_favorite(id) {
-  var product;
-  for (var i = 0; i < favorites.length; i++) {
-    if (favorites[i].id == id) {
-      product = favorites.splice(i, 1);
-    }
-  }
-  return product;
-};
-
-router.get('/contains/:id', function(req, res, next){
-  let id = req.params.id;
-  res.json(contains(id));
-})
+router.get('/contains/:id', favorites_controller.contains_item);
 
 module.exports = router;
