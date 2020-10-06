@@ -3,7 +3,7 @@ import { BasketModel } from '../model/basket-model';
 // Urls
 
 const URL_DOMAIN = 'http://localhost:';
-const PORT = 3000;
+const PORT = 3001;
 const BASE = URL_DOMAIN + PORT.toString();
 
 export const urlGetProducts = BASE + '/products/';
