@@ -75,8 +75,8 @@ function Products() {
                     <div className="dropdown-divider"></div>
 
                     <FilterProduct
-                        optionDefault={optionDefault}
-                        name="Categorias"
+                        plural_name="Categorias"
+                        singular_name = "categoria"
                         categories={categories}
                         functionFilter={filter} />
 

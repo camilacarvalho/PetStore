@@ -58,7 +58,6 @@ export const addProductInFavorite = (product) => {
     fetch(urlGetOrPostFavorites, postRequestInit(product))
         .then(res => res.json())
         .then(response => {
-            console.log(response);
         })
         .catch(error => console.log(error))
 }
@@ -67,7 +66,6 @@ export const addProductInBasket = (product) => {
     fetch(urlGetOrPostOrDeleteAllBasket, postRequestInit(product))
         .then(res => res.json())
         .then(response => {
-            console.log(response);
         })
         .catch(error => console.log(error))
 }

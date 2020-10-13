@@ -13,7 +13,7 @@ function ItemProduct(props) {
         fetch(urlContainsFavorites.replace('{id}', props.product.id), getRequestInit)
         .then(res => res.json())
         .then(response => {
-            console.log(response);
+
             if(response===true){
                 setIconFavorite(Heart);
             }else{
@@ -24,7 +24,7 @@ function ItemProduct(props) {
     });
     
     return (
-        <>
+        <> 
             <div className="card">
                 {props.isFavorite ? (<a className="navbar-brand" onClick={() => props.favoriteActionButton(props.product)} style={{ marginRight: "2 em", marginLeft: "auto" }}>
                     <img src={iconFavorite} width="30" height="30" alt="" />

@@ -22,7 +22,6 @@ function Page(props) {
     })
 
     var previousPageEnable = () => {
-        console.log(pageNumber)
         return pageNumber > 1;
     }
 
@@ -46,12 +45,8 @@ function Page(props) {
 
     var pageList = () => {
         var indexInit = indexInitList();
-        console.log("init");
-        console.log(indexInit);
 
         var indexFinish = indexFinishList();
-        console.log("finish");
-        console.log(indexFinish);
 
         var list = props.products.slice(indexInit, indexFinish);
         props.pageFunction(list);
