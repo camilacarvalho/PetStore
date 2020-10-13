@@ -2,25 +2,25 @@ import React from 'react';
 import ListButtonsCard from './list-buttons-card';
 import InfoBodyCard from './info-body-card';
 
-function ItemCard(props) {
-
+function ItemCard({image, column, product, description, list, buttonAction1, buttonAction2, item, buttons}) {
+ 
     return (
         <>
-            <div className={props.column.image}>
-                <img className={props.image.className} src={props.image.src} alt={props.image.alt} style={props.image.style} />
+            <div className={column.image}>
+                <img className={image.className} src={image.src} alt={image.alt} style={image.style} />
             </div>
-            <div className={props.column.body}>
+            <div className={column.body}>
                 <InfoBodyCard
-                    product={props.product}
-                    description={props.description}
-                    list={props.list}
+                    product={product}
+                    description={description}
+                    list={list}
                 />
 
                 <ListButtonsCard
-                    item={props.item}
-                    buttonAction1={props.buttonAction1}
-                    buttonAction2={props.buttonAction2}
-                    buttons={props.buttons}
+                    item={item}
+                    buttonAction1={buttonAction1}
+                    buttonAction2={buttonAction2}
+                    buttons={buttons}
                 />
             </div>
         </>

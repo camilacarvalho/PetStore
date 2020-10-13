@@ -1,10 +1,10 @@
 import React from 'react';
 
-function ListGroup(props) {
+function ListGroup({list}) {
     return (
         <>
             <ul className="list-group list-group-flush">
-                {props.list.map((item) => {
+                {list.map((item) => {
                     return (
                         <li className="list-group-item">{item}</li>
                     )

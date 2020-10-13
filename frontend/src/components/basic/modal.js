@@ -1,20 +1,20 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
-function ModalConfirmation(props) {
+function ModalConfirmation({closeModal, acaoButton1, acaoButton2, show, title, text, textButton1, textButton2, colorButton1, colorButton2}) {
 
     return (
-        <Modal show={props.show} onHide={props.closeModal}>
+        <Modal show={show} onHide={closeModal}>
             <Modal.Header closeButton>
-                <Modal.Title>{props.title}</Modal.Title>
+                <Modal.Title>{title}</Modal.Title>
             </Modal.Header>
-            <Modal.Body>{props.text}</Modal.Body>
+            <Modal.Body>{text}</Modal.Body>
             <Modal.Footer>
-                <Button variant={props.colorButton1} onClick={props.acaoButton1}>
-                    {props.textButton1}
+                <Button variant={colorButton1} onClick={acaoButton1}>
+                    {textButton1}
                 </Button>
-                <Button variant={props.colorButton2} onClick={props.acaoButton2}>
-                    {props.textButton2}
+                <Button variant={colorButton2} onClick={acaoButton2}>
+                    {textButton2}
                 </Button>
             </Modal.Footer>
         </Modal>

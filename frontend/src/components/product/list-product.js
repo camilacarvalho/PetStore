@@ -1,25 +1,25 @@
 import React from 'react';
 import RowProducts from './row-products'
 
-function ListProduct(props) {
-    var products = [];
+function ListProduct({buttons, buttonAction1, numberRow, isDescription, isCategory, isRating, isFavorite, favoriteActionButton, products}) {
+    var products_list = [];
  
     var prepareProductListByLine = () => {
-        var size = props.products.length;
-        var quantList = Math.ceil(size / props.numberRow);
+        var size = products.length;
+        var quantList = Math.ceil(size / numberRow);
         var indexProduto = 0;
         for (let index = 0; index < quantList; index++) {
             var products1 = [];
-            products1.push(props.products[indexProduto]);
+            products1.push(products[indexProduto]);
             indexProduto++;
-            var value = props.numberRow - 1;
+            var value = numberRow - 1;
             for (let index = 0; index < value; index++) {
-                if (props.products[indexProduto]) {
-                    products1.push(props.products[indexProduto]);
+                if (products[indexProduto]) {
+                    products1.push(products[indexProduto]);
                     indexProduto++;
                 }
             }
-            products.push(products1);
+            products_list.push(products1);
         }
     }
 
@@ -27,9 +27,19 @@ function ListProduct(props) {
         <>
             {prepareProductListByLine()}
             {
-                products.map((product, index) => {
+                products_list.map((product, index) => {
                     return (
-                        <RowProducts key={index} numberRow={props.numberRow} isDescription={props.isDescription} products={product} buttonAction1={props.buttonAction1}  buttons={props.buttons} favoriteActionButton={props.favoriteActionButton} isCategory={props.isCategory} isRating={props.isRating} isFavorite={props.isFavorite} />
+                        <RowProducts 
+                        key={index} 
+                        numberRow={numberRow} 
+                        isDescription={isDescription} 
+                        products={product} 
+                        buttonAction1={buttonAction1}  
+                        buttons={buttons} 
+                        favoriteActionButton={favoriteActionButton} 
+                        isCategory={isCategory} 
+                        isRating={isRating} 
+                        isFavorite={isFavorite} />
 
                     );
                 })

@@ -1,12 +1,12 @@
 import React from 'react';
 import ListGroup from './list-group';
 
-function InfoBodyCard(props) {
+function InfoBodyCard({product, description, list}) {
     return (<>
         <div className="card-body">
-            <h5 className="card-title">{props.product.name}</h5>
-            {props.description}
+            <h5 className="card-title">{product.name}</h5>
+            {description}
         </div>
-        <ListGroup list={props.list} />
+        <ListGroup list={list} />
     </>)
 } export default InfoBodyCard;

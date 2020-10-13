@@ -1,21 +1,30 @@
 import React from 'react';
 import ItemProduct from './item-product';
 
-function RowProducts(props) {
+function RowProducts({key, numberRow, isDescription, products, buttonAction1, buttons, favoriteActionButton, isCategory, isRating, isFavorite}) {
 
-    var products = props.products;
+    var products_list = products;
 
     return (
         <>
             <div className="card-group">
-                {(products).map((product, index) => {
+                {(products_list).map((product, index) => {
                     return (
-                        <ItemProduct key={index} isDescription={props.isDescription} buttonAction1={props.buttonAction1} buttons={props.buttons} favoriteActionButton={props.favoriteActionButton} isCategory={props.isCategory} isRating={props.isRating} isFavorite={props.isFavorite} product={product} />
+                        <ItemProduct 
+                        key={index} 
+                        isDescription={isDescription} 
+                        buttonAction1={buttonAction1} 
+                        buttons={buttons} 
+                        favoriteActionButton={favoriteActionButton} 
+                        isCategory={isCategory} 
+                        isRating={isRating}
+                        isFavorite={isFavorite} 
+                        product={product} />
                     );
                 })}
 
-                { (props.products.length < props.numberRow) ? 
-                <> {Array(props.numberRow - props.products.length).fill().map((x) => <div className="card"></div>)} </>
+                { (products.length < numberRow) ? 
+                <> {Array(numberRow - products.length).fill().map((x) => <div className="card"></div>)} </>
                 :
                 <></>
                 }               
