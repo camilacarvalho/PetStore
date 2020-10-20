@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import ItemBasket from '../components/basket/item-basket';
 import { notifyInfo, notifyCode, notifySuccess } from '../utils/toast-utils';
 import {urlDeleteOrPutProductInBasket, getRequestInit,deleteRequestInit,addProductInFavorite, urlGetOrPostOrDeleteAllBasket, putProductInBasket} from '../utils/request';
+import ThemaContext from '../context/ThemeContext'
+import AppTheme from '../components/themes'
 
 function Basket() {
 
+    const theme = useContext(ThemaContext)[0];
     const [basket, setBasket] = useState([])
     const [total, setTotal] = useState(0);
     const [page, setPage] = useState(1);
@@ -91,7 +94,7 @@ function Basket() {
             {notifyCode()}
             <div className="container-sm">
                 <br />
-                <div className="card border-warning" style={{ padding: "2rem", backgroundColor: "rgb(220,220,220)" }}>
+                <div className={AppTheme[theme].cardborder} style={{ padding: "2rem", backgroundColor: "rgb(220,220,220)" }}>
                     <h3>Carrinho</h3>
                     <div className="dropdown-divider"></div>
 
@@ -117,7 +120,7 @@ function Basket() {
                         <div className="col-6 col-md-4">
                             <p className="card-text"><small className="text-muted">Total</small></p>
                             <h2>R${total.toFixed(2)}</h2>
-                            <button type="button" disabled={total === 0} onClick={() => buy()} className="btn btn-warning btn-lg btn-block">Finalizar Compra</button>
+                            <button type="button" disabled={total === 0} onClick={() => buy()} className={AppTheme[theme].btn}>Finalizar Compra</button>
                         </div>
                     </div>
                 </div>

@@ -1,12 +1,15 @@
-import React,{useEffect, useState} from 'react';
+import React,{useContext, useEffect, useState} from 'react';
 import Rating from '../basic/rating';
 import Heart from '../../assets/images/cards-heart.svg';
 import HeartOutline from '../../assets/images/heart-outline.svg';
 import {urlContainsFavorites, getRequestInit} from '../../utils/request';
 import ItemCard from '../card/item-card';
+import ThemaContext from '../../context/ThemeContext'
+import AppTheme from '../themes'
 
 function ItemProduct({key, isDescription, buttonAction1, buttons, favoriteActionButton, isCategory, isRating, isFavorite, product}) {
-
+    
+    const theme = useContext(ThemaContext)[0];
     const [iconFavorite, setIconFavorite] = useState(HeartOutline);
 
     useEffect(() => {
@@ -25,7 +28,7 @@ function ItemProduct({key, isDescription, buttonAction1, buttons, favoriteAction
     
     return (
         <> 
-            <div className="card border-warning">
+            <div className={AppTheme[theme].cardborder} >
                 {isFavorite ? (<a className="navbar-brand" onClick={() => favoriteActionButton(product)} style={{ marginRight: "2 em", marginLeft: "auto" }}>
                     <img src={iconFavorite} width="30" height="30" alt="" />
                 </a>) : <></>}

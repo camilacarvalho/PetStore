@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import FilterProduct from '../components/basic/filter-product';
 import ListProduct from '../components/product/list-product';
 import { notifyInfo, notifyCode } from '../utils/toast-utils';
 import { urlGetProducts, urlGetCategories, urlContainsFavorites, addInBasketList, getRequestInit, addProductInFavorite, removeProductInFavorite} from '../utils/request';
+import ThemaContext from '../context/ThemeContext'
+import AppTheme from '../components/themes'
 
 function Products() {
+const theme = useContext(ThemaContext)[0];
 
     var optionDefault = { text: "Selecione uma categoria", value: 0 };
     const [products, setProducts] = useState([])
@@ -69,7 +72,7 @@ function Products() {
             {notifyCode()}
             <div className="container-sm">
                 <br />
-                <div className="card border-warning" style={{ padding: "2rem", backgroundColor: "rgb(220,220,220)" }} >
+                <div className={AppTheme[theme].cardborder} style= {{padding: "2rem", backgroundColor: "rgb(220,220,220)"}}>
                     <h3>Nossos Produtos</h3>
                     <div className="dropdown-divider"></div>
 
@@ -81,7 +84,7 @@ function Products() {
 
                     <ListProduct
                         buttonAction1={addBasket}
-                        buttons={[{ name: "Adicionar ao carrinho", action: "buttonAction1", style: "btn btn-outline-success", confirmation: false }]}
+                        buttons={[{ name: "Adicionar ao carrinho", action: "buttonAction1", style: AppTheme[theme].btncontrast, confirmation: false }]}
                         numberRow={3}
                         isDescription={true}
                         isCategory={true}
