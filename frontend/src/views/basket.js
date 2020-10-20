@@ -91,7 +91,7 @@ function Basket() {
             {notifyCode()}
             <div className="container-sm">
                 <br />
-                <div className="card" style={{ padding: "2rem", backgroundColor: "rgb(220,220,220)" }}>
+                <div className="card border-warning" style={{ padding: "2rem", backgroundColor: "rgb(220,220,220)" }}>
                     <h3>Carrinho</h3>
                     <div className="dropdown-divider"></div>
 

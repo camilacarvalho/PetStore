@@ -53,7 +53,7 @@ function Favorites() {
 
             <div className="container-sm">
                 <br />
-                <div className="card" style={{ padding: "2rem", backgroundColor: "rgb(220,220,220)" }}>
+                <div className="card border-warning" style={{ padding: "2rem", backgroundColor: "rgb(220,220,220)" }}>
                     <h3>Lista de desejos</h3>
                     <div className="dropdown-divider"></div>
                     {products.length === 0 ? <>

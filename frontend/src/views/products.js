@@ -10,7 +10,6 @@ function Products() {
     const [products, setProducts] = useState([])
     const [productList, setProductList] = useState([]);
     const [categories, setCategories] = useState([]);
-    const [page, setPage] = useState(1);
 
     useEffect(() => {
         fetch(urlGetProducts, getRequestInit)
@@ -20,7 +19,7 @@ function Products() {
                 setProductList(response);
             })
             .catch(error => console.log(error))
-    }, [page]);
+    }, []);
 
     useEffect(() => {
         fetch(urlGetCategories, getRequestInit)
@@ -29,7 +28,7 @@ function Products() {
                 setCategories(response);
             })
             .catch(error => console.log(error))
-    }, [page]);
+    }, []);
 
     var addBasket = (product) => {
         addInBasketList(product);
@@ -70,7 +69,7 @@ function Products() {
             {notifyCode()}
             <div className="container-sm">
                 <br />
-                <div className="card" style={{ padding: "2rem" }}>
+                <div className="card border-warning" style={{ padding: "2rem", backgroundColor: "rgb(220,220,220)" }} >
                     <h3>Nossos Produtos</h3>
                     <div className="dropdown-divider"></div>
 
@@ -82,7 +81,7 @@ function Products() {
 
                     <ListProduct
                         buttonAction1={addBasket}
-                        buttons={[{ name: "Adicionar ao carrinho", action: "buttonAction1", style: "btn btn-outline-secondary", confirmation: false }]}
+                        buttons={[{ name: "Adicionar ao carrinho", action: "buttonAction1", style: "btn btn-outline-success", confirmation: false }]}
                         numberRow={3}
                         isDescription={true}
                         isCategory={true}

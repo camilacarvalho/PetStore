@@ -5,9 +5,9 @@ import Favorite from '../../assets/images/cards-heart.svg'
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav className="navbar navbar-dark bg-warning">
       <img src={Paw} width="30" height="30" alt="" />
-      <a className="navbar-brand" href="#/">Pet Store</a>
+      <a className="navbar-brand text-dark" href="#/">Pet Store</a>
       <a className="navbar-brand" href="#/shopping_cart" style={{ marginRight: "2em", marginLeft: "auto" }}>
         <img src={ImageBasket} width="30" height="30" alt="" />
       </a>

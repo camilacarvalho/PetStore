@@ -25,7 +25,7 @@ function ItemProduct({key, isDescription, buttonAction1, buttons, favoriteAction
     
     return (
         <> 
-            <div className="card">
+            <div className="card border-warning">
                 {isFavorite ? (<a className="navbar-brand" onClick={() => favoriteActionButton(product)} style={{ marginRight: "2 em", marginLeft: "auto" }}>
                     <img src={iconFavorite} width="30" height="30" alt="" />
                 </a>) : <></>}
