@@ -9,7 +9,7 @@ import AppTheme from '../components/themes'
 function Products() {
 const theme = useContext(ThemaContext)[0];
 
-    var optionDefault = { text: "Selecione uma categoria", value: 0 };
+    const optionDefault = { text: "Selecione uma categoria", value: 0 };
     const [products, setProducts] = useState([])
     const [productList, setProductList] = useState([]);
     const [categories, setCategories] = useState([]);
@@ -59,7 +59,7 @@ const theme = useContext(ThemaContext)[0];
         if (value == optionDefault.value) {
             setProductList(products);
         } else {
-            var listFilter = [];
+            let listFilter = [];
             products.filter(prod => prod[atribute].toUpperCase() == value).map(productFiltered => (
                 listFilter.push(productFiltered)
             ))

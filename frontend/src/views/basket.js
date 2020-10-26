@@ -53,7 +53,7 @@ function Basket() {
     }
 
     var calculaTotal = () => {
-        var atual = 0;
+        let atual = 0;
         basket.forEach(item => {
             atual = atual + (item.product.price * item.quantity)
         });

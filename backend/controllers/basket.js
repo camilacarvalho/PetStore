@@ -1,4 +1,4 @@
-    var shopping_cart = require('../public/json/basket.json');
+    let shopping_cart = require('../public/json/basket.json');
 
     exports.all_items = function(req, res, next) {
         res.json(shopping_cart)
@@ -12,7 +12,7 @@
     };
 
     exports.delete_item = function (req, res, next) {
-        var id = req.params.id;
+        let id = req.params.id;
         remove_basket(id);
         res.json(shopping_cart);
         res.status("204");
@@ -32,20 +32,20 @@
       }
 
       function remove_basket(id) {
-        var product;
-        for (var i = 0; i < shopping_cart.length; i++) {
+        let product;
+        for (let i = 0; i < shopping_cart.length; i++) {
           if (shopping_cart[i].id == id) {
-            shopping_cart.splice(i, 1);
+            product = shopping_cart.splice(i, 1);
           }
         }
         return product;
       }
 
       exports.update_item = function(req, res, next){
-        var id = req.params.id;
+        const id = req.params.id;
         console.log(req.body);
         console.log(shopping_cart);
-        for (var i = 0; i < shopping_cart.length; i++) {
+        for (let i = 0; i < shopping_cart.length; i++) {
           if (shopping_cart[i].id == id) {
             shopping_cart[i]=req.body;
           }

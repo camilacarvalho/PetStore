@@ -10,7 +10,7 @@ function ItemBasket({key, setQuantity, buttons, buttonAction1, buttonAction2, it
 
     var onChange = (event) => {
         const valor = event;
-        var i = item;
+        let i = item;
         i.quantity = valor;
         setQuantity(item);
     }

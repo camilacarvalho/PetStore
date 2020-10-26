@@ -2,17 +2,17 @@ import React from 'react';
 import RowProducts from './row-products'
 
 function ListProduct({buttons, buttonAction1, numberRow, isDescription, isCategory, isRating, isFavorite, favoriteActionButton, products}) {
-    var products_list = [];
+    let products_list = [];
  
     var prepareProductListByLine = () => {
-        var size = products.length;
-        var quantList = Math.ceil(size / numberRow);
-        var indexProduto = 0;
+        const size = products.length;
+        const quantList = Math.ceil(size / numberRow);
+        let indexProduto = 0;
         for (let index = 0; index < quantList; index++) {
-            var products1 = [];
+            let products1 = [];
             products1.push(products[indexProduto]);
             indexProduto++;
-            var value = numberRow - 1;
+            const value = numberRow - 1;
             for (let index = 0; index < value; index++) {
                 if (products[indexProduto]) {
                     products1.push(products[indexProduto]);

@@ -1,4 +1,4 @@
-var favorites = require('../public/json/favorites.json');
+let favorites = require('../public/json/favorites.json');
 
 exports.all_items =function (req, res, next) {
     res.json(favorites);
@@ -13,7 +13,7 @@ exports.create_items = function (req, res, next) {
 }
 
 exports.delete_item = function (req, res, next) {
-    var id = req.params.id;
+    const id = req.params.id;
     remove_favorite(id);
     res.json(favorites);
     res.status("204");
@@ -29,8 +29,8 @@ function contains(id) {
 }
   
 function remove_favorite(id) {
-    var product;
-    for (var i = 0; i < favorites.length; i++) {
+    let product;
+    for (let i = 0; i < favorites.length; i++) {
       if (favorites[i].id == id) {
         product = favorites.splice(i, 1);
       }

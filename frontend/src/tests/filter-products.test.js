@@ -4,7 +4,7 @@ import { act } from "react-dom/test-utils";
 
 import FilterProduct from "../components/basic/filter-product";
 
-var categories = ["ALIMENTO", "HIGIENE", "ACESSORIOS", "BRINQUEDOS"];
+const categories = ["ALIMENTO", "HIGIENE", "ACESSORIOS", "BRINQUEDOS"];
 
 let container = null;
 beforeEach(() => {

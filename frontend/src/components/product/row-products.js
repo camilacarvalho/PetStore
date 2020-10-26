@@ -3,7 +3,7 @@ import ItemProduct from './item-product';
 
 function RowProducts({key, numberRow, isDescription, products, buttonAction1, buttons, favoriteActionButton, isCategory, isRating, isFavorite}) {
 
-    var products_list = products;
+    const products_list = products;
 
     return (
         <>

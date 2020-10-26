@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function FilterProduct({plural_name, singular_name, categories, functionFilter}) {
-    var optionDefault =  { text: "Selecione uma "+singular_name, value: 0 }
+    const optionDefault =  { text: "Selecione uma "+singular_name, value: 0 }
     const [select, setSelect] = useState(optionDefault);
 
     var handleChange = (event) => {
